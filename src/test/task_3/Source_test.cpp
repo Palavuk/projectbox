@@ -1,8 +1,9 @@
-#include <gtest/gtest.h>
 #include <string>
 #include <sstream>
 #include <vector>
 #include <algorithm>
+
+#include <gtest/gtest.h>
 
 #include <project/task_3/Source.h>
 
