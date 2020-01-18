@@ -5,6 +5,12 @@
 #include <functional>
 #include <vector>
 
+template<class strm>
+void message(strm& stream, const char* format)
+{
+	stream << format;
+}
+
 template <class strm, class T>
 void message(strm& stream, const char* format, T arg) {
 	int count = strlen(format);
@@ -92,7 +98,4 @@ Tie<T, n, (sizeof... (Arrays) + 1)>  uncat(std::array<T, n>& arr, Arrays& ... ar
 	return Tie<T, n, (sizeof... (arrs) + 1)>(arr, arrs ...);
 }
 
-int main() {
-	message(std::cout, "% % %\n", 1, 2);
-	return 0;
-}
+

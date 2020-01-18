@@ -1,0 +1,1 @@
+[{"cmd": ["/root/Nikita/projectbox/build/src/test/task_3/variadic_test"], "env": {}, "name": "variadic_test", "workdir": null, "timeout": 30, "suite": ["cpp_prog"], "is_parallel": true, "priority": 0, "protocol": "exitcode"}]
