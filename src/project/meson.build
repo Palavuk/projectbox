@@ -1,5 +1,5 @@
-subdir("task 2")
-subdir("task 3")
+subdir('task_2')
+subdir('task_3')
 
 tasks_src = files([
     'main.cpp'

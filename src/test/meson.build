@@ -1,3 +1,3 @@
 gtest = dependency('gtest', main: true)
 
-subdir("task 3")
+subdir('task_3')
