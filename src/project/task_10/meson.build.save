@@ -1,3 +1,0 @@
-rotation_src = ['vec_rotation.h']
-
-executable
