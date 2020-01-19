@@ -13,19 +13,19 @@ TEST(result, correctness){
     std::array<float, 2> vector {10, 10};
 	std::pair<bool, std::array<float, 2>> res (true, vector);
 	EXPECT_EQ(res, result(360, vector));
-    EXPECT_EQ(res, result(-360, vector));
-    EXPECT_EQ(res, result(720, vector));
-    EXPECT_EQ(res, result(0, vector));
+       	EXPECT_EQ(res, result(-360, vector));
+       	EXPECT_EQ(res, result(720, vector));
+	EXPECT_EQ(res, result(0, vector));
 
-    std::pair<bool, std::array<float, 2>> res0 (false, vector);
-    EXPECT_EQ(res0, result(350, vector));
+	res = {false, vector};
+    EXPECT_EQ(res, result(350, vector));
 
-    res = {true, {vector[0], -vector[1]}};
+    res = {true, {-vector[0], vector[1]}};
     EXPECT_EQ(res, result(90, vector));
     
-    res = {true, {-vector[0], vector[1]}};
-    EXPECT_EQ(res, result(180, vector));
-
     res = {true, {vector[0], -vector[1]}};
     EXPECT_EQ(res, result(270, vector));
+
+    res = {true, {-vector[0], -vector[1]}};
+    EXPECT_EQ(res, result(180, vector));
 }
