@@ -1,5 +1,6 @@
 subdir('task_2')
 subdir('task_3')
+subdir('task_10')
 
 tasks_src = files([
    'main.cpp',

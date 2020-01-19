@@ -10,5 +10,7 @@ std::pair<bool, std::array<float, 2>> result(int angle,std::array<float, 2>& vec
 }
 
 TEST(result, correctness){
-    EXCEPT_EQ({true, {10, 10}}, result(360, {10, 10}));
+	std::array<float, 2> vector {10, 10};
+	std::pair<bool, std::array<float, 2>> res1 (true, vector);
+	EXPECT_EQ(res1, result(360, vector));
 }
