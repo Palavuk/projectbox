@@ -20,8 +20,8 @@ INSTANTIATE_TEST_CASE_P(
     symmetric_test,
     ::testing::Values(
         symmetric_param{
-            matrix<float>({1,1,1,1}, 2, 2);
-            bool true;
+            matrix<float>({1,1,1,1}, 2, 2),
+            bool true
         }
     )
 );
