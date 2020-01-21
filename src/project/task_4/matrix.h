@@ -96,6 +96,16 @@ class matrix{
 	    	return result;
 	    };
 
+        matrix<bool>& operator==(const T& mtrxr)
+	    {
+	    	matrix<bool> result(N, M);
+	    	for (size_t i = 0; i < mtrxr.data.size(); i++)
+	    	{
+	    		result[i] = data[i] == mtrxr.data[i];
+	    	}
+	    	return result;
+	    }
+
         matrix<bool> operator<(const T& n)
 	    {
 	    	matrix<bool> result(str, clmn);
