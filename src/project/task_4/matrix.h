@@ -134,11 +134,11 @@ class matrix{
         };
 
         bool is_symmetric(){
-            matrix<T> mtrx(data, str, clmn)
+            matrix<T> mtrx(data, str, clmn);
             return all(abs(*this - mtrx.transposed()) < eps);
         }
 
-        T& operator[](size_t i){ return data[i]; };
+        T& operator[](size_t i){ return *data[i]; };
 
         T operator[](size_t i) const { return data[i]; };
 
