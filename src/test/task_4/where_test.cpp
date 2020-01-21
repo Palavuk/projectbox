@@ -28,7 +28,7 @@ INSTANTIATE_TEST_CASE_P(
         where_param{
             matrix<float>({1,0,1,1,1,1}, 2, 3);
             matrix<float>({0,1,1,0,0,0}, 2, 3);
-            matrix<float>({0,0,0,0,0,0}, 2, 3);
+            matrix<float>({0,0,1,0,0,0}, 2, 3);
         }
     )
 );
