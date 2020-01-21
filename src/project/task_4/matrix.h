@@ -69,7 +69,7 @@ class matrix{
 	    matrix<bool> operator<(const matrix<T>& mtrx)
 	    {
 	    	matrix<bool> result(str, clmn);
-	    	for (size_t i = 0; i < mtrx.datasize(); i++)
+	    	for (size_t i = 0; i < mtrx.size(); i++)
 	    	{
 	    		result[i] = data[i] < mtrx.data[i];
 	    	}
@@ -79,7 +79,7 @@ class matrix{
 	    matrix<bool> operator>=(const matrix<T>& mtrx)
 	    {
 	    	matrix<bool> result(str, clmn);
-	    	for (size_t i = 0; i < mtrx.data.size(); i++)
+	    	for (size_t i = 0; i < mtrx.size(); i++)
 	    	{
 	    		result[i] = data[i] >= mtrx.data[i];
 	    	}
@@ -89,7 +89,7 @@ class matrix{
 	    matrix<bool> operator<=(const matrix<T>& mtrx)
 	    {
 	    	matrix<bool> result(str, clmn);
-	    	for (size_t i = 0; i < mtrx.data.size(); i++)
+	    	for (size_t i = 0; i < mtrx.size(); i++)
 	    	{
 	    		result[i] = data[i] <= mtrx.data[i];
 	    	}
