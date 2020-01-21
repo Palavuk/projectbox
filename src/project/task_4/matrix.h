@@ -130,7 +130,7 @@ class matrix{
             matrix<T> result(clmn, str);
             for (size_t i = 0; i < str; i++)
                 for (size_t j = 0; j < clmn; j++)
-                    result.data[j * str + i] = data[(i) * clmn + j]
+                    result.data[j * str + i] = data[(i) * clmn + j];
         };
 
         bool is_symmetric(){
@@ -182,7 +182,7 @@ matrix<T> operator-(const matrix<T>& mtrxl, const matrix<T>& mtrxr)
 template<class T>
 matrix<T> where(const matrix<bool>& bool_matr, const matrix<T>& mtrxl, const matrix<T>& mtrxr)
 {
-	Matrix<T> result(mtrxl.n(), mtrxr.m());
+	matrix<T> result(mtrxl._str(), mtrxr._clmn());
 	for (int i = 0; i < result.size(); i++)
 	{
 		result[i] = bool_matr[i] ? mtrxl[i] : mtrxr[i];
