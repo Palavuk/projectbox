@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include <task_4/matrix.h>
+#include <project/task_4/matrix.h>
 
 struct where_param{
 	matrix<float> a;
