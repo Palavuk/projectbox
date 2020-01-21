@@ -119,7 +119,7 @@ class matrix{
         matrix<bool> operator<(const T& n)
 	    {
 	    	matrix<bool> result(str, clmn);
-	    	for (size_t i = 0; i < result.data.size(); i++)
+	    	for (size_t i = 0; i < result.size(); i++)
 	    	{
 	    		result[i] = data[i] < n;
 	    	}

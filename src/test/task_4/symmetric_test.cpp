@@ -11,7 +11,7 @@ class symmetric_test: public ::testing::TestWithParam<symmetric_param> {};
 
 TEST_P(symmetric_test, _){
     const symmetric_param& param = GetParam();
-    matrix<float> output = param.input.is_symmetric();
+    bool output = param.input.is_symmetric();
     EXPECT_EQ(param.expected_output, output);
 };
 
