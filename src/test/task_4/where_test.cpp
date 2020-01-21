@@ -12,7 +12,8 @@ class where_test: public ::testing::TestWithParam<where_param> {};
 
 TEST_P(where_test, _){
     const where_param& param = GetParam();
-    matrix<bool> bool_mask = (param.a < param.b);
+    matrix<bool> bn(param.b);
+    matrix<bool> bool_mask = (param.a < bn);
     matrix<float> output = where(bool_mask, param.a, param.b);
     EXPECT_EQ(param.expected_output, output);
 };
