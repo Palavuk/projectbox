@@ -71,14 +71,14 @@ class matrix{
 	    	matrix<bool> result(str, clmn);
 	    	for (size_t i = 0; i < mtrx.datasize(); i++)
 	    	{
-	    		matrix[i] = data[i] < mtrx.data[i];
+	    		result[i] = data[i] < mtrx.data[i];
 	    	}
 	    	return result;
 	    };
 
 	    matrix<bool> operator>=(const matrix<T>& mtrx)
 	    {
-	    	matrix<bool> matrix(str, clmn);
+	    	matrix<bool> result(str, clmn);
 	    	for (size_t i = 0; i < mtrx.data.size(); i++)
 	    	{
 	    		result[i] = data[i] >= mtrx.data[i];
@@ -96,12 +96,22 @@ class matrix{
 	    	return result;
 	    };
 
-        matrix<bool>& operator==(const T& mtrxr)
+        matrix<bool>& operator==(const T& n)
 	    {
-	    	matrix<bool> result(N, M);
-	    	for (size_t i = 0; i < mtrxr.data.size(); i++)
+	    	matrix<bool> result(str, clmn);
+	    	for (size_t i = 0; i < data.size(); i++)
 	    	{
-	    		result[i] = data[i] == mtrxr.data[i];
+	    		result[i] = data[i] == n;
+	    	}
+	    	return result;
+	    };
+
+        matrix<bool>& operator==(matrix<T>& mtrx)
+	    {
+	    	matrix<bool> result(str, clmn);
+	    	for (size_t i = 0; i < mtrx.size(); i++)
+	    	{
+	    		result[i] = data[i] == mtrx.data[i];
 	    	}
 	    	return result;
 	    }
