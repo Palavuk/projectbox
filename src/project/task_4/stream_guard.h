@@ -21,4 +21,4 @@ class stream_guard{
             stream.fill(stream_fill);
             stream.exceptions(exceptions_lock);
         };
-}      
+};
