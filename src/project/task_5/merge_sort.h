@@ -2,7 +2,7 @@
 #include <vector>
 #include <iterator>
 
-template<class iterator>
+template<class iterator, class T>
 std::vector<class iterator::T> merge(iterator first, iterator middle, iterator last)
 {
 	std::vector<class iterator::T> merged;
@@ -21,7 +21,7 @@ std::vector<class iterator::T> merge(iterator first, iterator middle, iterator l
 	return std::move(merged);
 }
 
-template<class iterator>
+template<class iterator, class T>
 void merge_sort(iterator first, iterator last)
 {
 	size_t distance = std::distance(first, last);
