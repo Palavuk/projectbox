@@ -66,7 +66,7 @@ class matrix{
 	    	return result;
 	    };
 
-	    matrix<bool> operator<(const matrix<T>& mtrx)
+	    matrix<bool> operator<(const matrix<T> mtrx)
 	    {
 	    	matrix<bool> result(str, clmn);
 	    	for (size_t i = 0; i < mtrx.size(); i++)
@@ -158,7 +158,7 @@ matrix<T> abs(const matrix<T>& mtrx)
 	return result;
 };
 
-bool all(const matrix<bool>& mtrx)
+bool all(const matrix<bool> mtrx)
 {
 	matrix<bool> result(mtrx._str(), mtrx._clmn());
 	for (size_t i = 0; i < mtrx.size(); i++)
