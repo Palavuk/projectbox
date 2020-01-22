@@ -106,7 +106,7 @@ class matrix{
 	    	return result;
 	    };
 
-        matrix<bool>& operator==(matrix<T>& mtrx)
+        matrix<bool> operator==(matrix<T> mtrx)
 	    {
 	    	matrix<bool> result(str, clmn);
 	    	for (size_t i = 0; i < mtrx.size(); i++)
