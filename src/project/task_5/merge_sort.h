@@ -1,14 +1,14 @@
 #pragma once
 #include <vector>
-#include <iterator>
+#include <iteratorator>
 
-template<class iter>
-std::vector<class iter::T> merge(iter first, iter middle, iter last)
+template<class iterator>
+std::vector<class iterator::T> merge(iterator first, iterator middle, iterator last)
 {
-	std::vector<class iter::T> merged;
+	std::vector<class iterator::T> merged;
 
-	iter f_left = first, f_right = middle;
-	iter s_left = middle, s_right = last;
+	iterator f_left = first, f_right = middle;
+	iterator s_left = middle, s_right = last;
 
 	while (f_left != s_left && f_right != s_right)
 	{
@@ -21,19 +21,17 @@ std::vector<class iter::T> merge(iter first, iter middle, iter last)
 	return std::move(merged);
 }
 
-template<class iter>
-void merge_sort(iter first, iter last)
+template<class iterator>
+void merge_sort(iterator first, iterator last)
 {
 	size_t distance = std::distance(first, last);
 	if (distance < 2)
-	{
 		return;
-	}
 
-	iter middle = std::next(first, distance/2);
+	iterator middle = std::next(first, distance/2);
 	merge_sort(first, middle);
 	merge_sort(middle, last);
 
-	std::vector<class iter::T>&& merged = merge(first, middle, last);
+	std::vector<class iterator::T>&& merged = merge(first, middle, last);
 	std::move(merged.cfirst(), merged.clast(), first);
 }
