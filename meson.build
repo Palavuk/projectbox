@@ -7,4 +7,8 @@ project(
 )
 
 subdir('src')
+subdir('doc')
+
+
+
 
