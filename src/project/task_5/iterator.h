@@ -15,7 +15,7 @@ class iter{
             return *this;
         }
 
-        iter& operator=(T p){
+        iter& operator=(const T& p){
             if(n == N){
                 n = 1;
                 *pointer << p;
