@@ -5,6 +5,13 @@
 #include <functional>
 #include <vector>
 
+/**
+ * функция message, которая работает аналогично функции printf.
+ * Первый аргумент функции — поток, куда будут выводится символы. 
+ * Второй аргумент функции — шаблон строки, которая отобразится на экране, в котором символом % обозначены места вставки объектов. 
+ * Остальные аргументы функции — это объекты, которые нужно вставить на место %. Функция при вызове выводит сообщение на стандартный вывод. Например,
+ * message(std::cout, "% + % = %\n", 'a', 2, 3.0) выведет на экран a + 2 = 3.
+ */
 template<class strm>
 void message(strm& stream, const char* format)
 {
@@ -12,7 +19,7 @@ void message(strm& stream, const char* format)
 }
 
 template <class strm, class T>
-void message(strm& stream, const char* format, T arg) {
+void message(strm& stream, const char* format, T arg) { 
 	int count = strlen(format);
 	for (int i = 0; i < count; i++)
 		if (format[i] != '%')
@@ -40,6 +47,17 @@ void message(strm& stream, const char* format, Type arg, T ... args) {
 
 }
 
+/**
+ * функция cat, которая соединяет произвольное количество массивов
+в один большой массив. Функция должна принимать произвольное количество
+аргументов и возвращать объект типа std::array (это один из новых классов
+стандартной библиотеки C++, который представляет собой статический массив заданного размера). Пример вызова функции:
+2
+std::array<float,3> vec1{1.0f,2.0f,3.0f};
+std::array<float,3> vec2{4.0f,5.0f,6.0f};
+std::array<float,6> r = cat(vec1, vec2); // 1 2 3 4 5 6
+
+ */
 template <class T, std::size_t n>
 std::array<T, 2 * n> cat(std::array<T, n> arr1, std::array<T, n> arr2) {
 	std::array<T, 2 * n> result;
@@ -60,6 +78,10 @@ std::array<T, (n * (sizeof... (Arrays) + 1))> cat(std::array<T, n> arr, Arrays .
 		result[i] = (arrcat[i - n]);
 	return result;
 }
+
+/**
+ * функция Tie, которая работает также как std::tie, но для массивов, имеющих тип std::array<T,N>
+ */
 
 template <class T, size_t n, size_t m>
 struct Tie {
