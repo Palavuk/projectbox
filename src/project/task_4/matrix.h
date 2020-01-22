@@ -60,9 +60,7 @@ class matrix{
 	    {
 	    	matrix<bool> result(str, clmn);
 	    	for (size_t i = 0; i < mtrx.data.size(); i++)
-	    	{
 	    		result[i] = data[i] > mtrx.data[i];
-	    	}
 	    	return result;
 	    };
 
@@ -70,9 +68,7 @@ class matrix{
 	    {
 	    	matrix<bool> result(str, clmn);
 	    	for (size_t i = 0; i < mtrx.size(); i++)
-	    	{
 	    		result[i] = data[i] < mtrx.data[i];
-	    	}
 	    	return result;
 	    };
 
@@ -80,9 +76,7 @@ class matrix{
 	    {
 	    	matrix<bool> result(str, clmn);
 	    	for (size_t i = 0; i < mtrx.size(); i++)
-	    	{
 	    		result[i] = data[i] >= mtrx.data[i];
-	    	}
 	    	return result;
 	    };
 
@@ -90,9 +84,7 @@ class matrix{
 	    {
 	    	matrix<bool> result(str, clmn);
 	    	for (size_t i = 0; i < mtrx.size(); i++)
-	    	{
 	    		result[i] = data[i] <= mtrx.data[i];
-	    	}
 	    	return result;
 	    };
 
@@ -100,9 +92,7 @@ class matrix{
 	    {
 	    	matrix<bool> result(str, clmn);
 	    	for (size_t i = 0; i < data.size(); i++)
-	    	{
 	    		result[i] = data[i] == n;
-	    	}
 	    	return result;
 	    };
 
@@ -110,9 +100,7 @@ class matrix{
 	    {
 	    	matrix<bool> result(str, clmn);
 	    	for (size_t i = 0; i < result.size(); i++)
-	    	{
 	    		result[i] = data[i] < n;
-	    	}
 	    	return result;
 	    };
 
@@ -128,7 +116,7 @@ class matrix{
             return all(abs(*this - mtrx.transposed()) < eps);
         }
 
-        //T& operator[](size_t i){ return data[i]; };
+        T& operator[](size_t i){ return data[i]; };
 
         T operator[](size_t i) const { return data[i]; };
 
@@ -141,10 +129,8 @@ template<class T>
 bool operator==(const matrix<T>& lhs, const matrix<T>& rhs)
 {
 	for (int i = 0; i < lhs.size(); i++)
-	{
 		if (lhs[i] != rhs[i])
 			return false;
-	}
 
 	return true;
 }
@@ -154,9 +140,7 @@ matrix<T> abs(const matrix<T>& mtrx)
 {
 	matrix<T> result;
 	for (size_t i = 0; i < mtrx.size(); i++)
-	{
 		result[i] = std::abs(mtrx[i]);
-	}
 	return result;
 };
 
@@ -164,10 +148,8 @@ bool all(const matrix<bool>& mtrx)
 {
 	matrix<bool> result(mtrx._str(), mtrx._clmn());
 	for (size_t i = 0; i < mtrx.size(); i++)
-	{
 		if (!mtrx[i])
 			return false;
-	}
 	return true;
 }
 
@@ -176,9 +158,7 @@ matrix<T> operator-(const matrix<T>& mtrxl, const matrix<T>& mtrxr)
 {
 	matrix<T> result(mtrxl);
 	for (size_t i = 0; i < result.size(); i++)
-	{
 		result[i] = mtrxl[i] - mtrxr[i];
-	}
 	return result;
 }
 
@@ -187,8 +167,6 @@ matrix<T> where(const matrix<bool>& bool_matr, const matrix<T>& mtrxl, const mat
 {
 	matrix<T> result(mtrxl._str(), mtrxr._clmn());
 	for (int i = 0; i < result.size(); i++)
-	{
 		result[i] = bool_matr[i] ? mtrxl[i] : mtrxr[i];
-	}
 	return result;
 }
