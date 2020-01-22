@@ -1,12 +1,11 @@
 #pragma once
-#include <iterator>
 #include <vector>
 #include "iterator.h"
 
-template<typename iter>
-std::vector<typename iter::T> merge(iter first, iter middle, iter last)
+template<class iter>
+std::vector<class iter::T> merge(iter first, iter middle, iter last)
 {
-	std::vector<typename iter::T> merged;
+	std::vector<class iter::T> merged;
 
 	iter f_left = first, f_right = middle;
 	iter s_left = middle, s_right = last;
@@ -35,6 +34,6 @@ void merge_sort(iter first, iter last)
 	merge_sort(first, middle);
 	merge_sort(middle, last);
 
-	std::vector<typename iter::T>&& merged = merge(first, middle, last);
+	std::vector<class iter::T>&& merged = merge(first, middle, last);
 	std::move(merged.cfirst(), merged.clast(), first);
 }
