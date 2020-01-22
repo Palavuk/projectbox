@@ -2,35 +2,35 @@
 
 #include <project/task_4/matrix.h>
 
-struct where_param{
-	matrix<float> a;
-	matrix<float> b;
-	matrix<float> expected_output;
+struct where_test_param
+{
+	Matrix<bool> bool_mask;
+	Matrix<float> input_true;
+	Matrix<float> input_false;
+	Matrix<float> output;
 };
 
-class where_test: public ::testing::TestWithParam<where_param> {};
+class where_test : public ::testing::TestWithParam<where_test_param> {};
 
-TEST_P(where_test, _){
-    const where_param& param = GetParam();
-    const matrix<float> bn(param.b);
-    matrix<bool> bool_mask = (param.a < bn);
-    matrix<float> output = where(bool_mask, param.a, param.b);
-    EXPECT_EQ(param.expected_output, output);
-};
+TEST_P(where_test, _)
+{
+	const where_test_param& param = GetParam();
+	
+	Matrix<float> output = where(param.bool_mask, param.input_true, param.input_false);
+
+	EXPECT_EQ(param.output, output);
+		
+}
 
 INSTANTIATE_TEST_CASE_P(
-    _,
-    where_test,
-    ::testing::Values(
-        where_param{
-            matrix<float>({1,1,1,1,1,1}, 2, 3),
-            matrix<float>({0,0,0,0,0,0}, 2, 3),
-            matrix<float>({0,0,0,0,0,0}, 2, 3)
-        },
-        where_param{
-            matrix<float>({1,0,1,1,1,1}, 2, 3),
-            matrix<float>({0,1,1,0,0,0}, 2, 3),
-            matrix<float>({0,0,1,0,0,0}, 2, 3)
-        }
-    )
+	_,
+	where_test,
+	::testing::Values(
+		where_test_param{
+			Matrix<bool>(std::vector<bool>({1, 0, 0, 0, 0, 0}), 2, 3),
+			Matrix<float>(std::vector<float>({1, 2, 3, 4, 5, 6}), 2, 3),
+			Matrix<float>(std::vector<float>({11, 22, 33, 44, 55, 66}), 2, 3),
+			Matrix<float>(std::vector<float>({1, 22, 33, 44, 55, 66}), 2, 3)
+		}
+	)
 );
