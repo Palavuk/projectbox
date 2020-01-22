@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include <iteratorator>
+#include <iterator>
 
 template<class iterator>
 std::vector<class iterator::T> merge(iterator first, iterator middle, iterator last)
