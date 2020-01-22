@@ -106,16 +106,6 @@ class matrix{
 	    	return result;
 	    };
 
-        matrix<bool> operator==(matrix<T> mtrx)
-	    {
-	    	matrix<bool> result(str, clmn);
-	    	for (size_t i = 0; i < mtrx.size(); i++)
-	    	{
-	    		result[i] = data[i] == mtrx.data[i];
-	    	}
-	    	return result;
-	    }
-
         matrix<bool> operator<(const T& n)
 	    {
 	    	matrix<bool> result(str, clmn);
@@ -146,6 +136,18 @@ class matrix{
         size_t _str() const {return str;};
         size_t _clmn() const {return clmn;};
 };
+
+template<class T>
+bool operator==(const matrix<T>& lhs, const matrix<T>& rhs)
+{
+	for (int i = 0; i < lhs.size(); i++)
+	{
+		if (lhs[i] != rhs[i])
+			return false;
+	}
+
+	return true;
+}
 
 template<class T>
 matrix<T> abs(const matrix<T>& mtrx)
