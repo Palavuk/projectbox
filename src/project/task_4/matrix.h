@@ -128,7 +128,7 @@ class matrix{
             return all(abs(*this - mtrx.transposed()) < eps);
         }
 
-        T& operator[](size_t i){ return data[i]; };
+        //T& operator[](size_t i){ return data[i]; };
 
         T operator[](size_t i) const { return data[i]; };
 
