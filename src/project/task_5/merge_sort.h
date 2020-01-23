@@ -3,8 +3,7 @@
 #include <iterator>
 
 template<class iterator, class T>
-std::vector<class iterator::T> merge(iterator first, iterator middle, iterator last)
-{
+std::vector<class iterator::T> merge(iterator first, iterator middle, iterator last){
 	std::vector<class iterator::T> merged;
 
 	iterator f_left = first, f_right = middle;
@@ -22,8 +21,7 @@ std::vector<class iterator::T> merge(iterator first, iterator middle, iterator l
 }
 
 template<class iterator, class T>
-void merge_sort(iterator first, iterator last)
-{
+void merge_sort(iterator first, iterator last){
 	size_t distance = std::distance(first, last);
 	if (distance < 2)
 		return;
@@ -33,5 +31,5 @@ void merge_sort(iterator first, iterator last)
 	merge_sort(middle, last);
 
 	std::vector<class iterator::T>&& merged = merge(first, middle, last);
-	std::move(merged.cfirst(), merged.clast(), first);
+	std::move(merged.cbegin(), merged.cend(), first);
 }
