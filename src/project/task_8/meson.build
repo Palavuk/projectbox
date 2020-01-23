@@ -1,5 +1,5 @@
 task_8_src = files([
-    'main.ccp'
+    'main.cpp'
 ])
 
 threads = dependency('threads')
